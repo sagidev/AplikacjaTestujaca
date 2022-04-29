@@ -1,0 +1,2 @@
+1;losowatresc;aa;bb;cc;dd;1;C
+2;losowatresc123;aa;bb;cc;dd;2;D
