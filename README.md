@@ -1,4 +1,4 @@
-# AplikacjaTestujaca
+# Aplikacja Testujaca
 Aplikacja Testujaca - Projekt zaliczeniowy w grupie 6-osobowej
 
 # Testowanie
