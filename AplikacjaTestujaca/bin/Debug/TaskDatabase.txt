@@ -1,2 +1,9 @@
+0;losowatresc123;aa;bb;cc;dd;2;D
 1;losowatresc;aa;bb;cc;dd;1;C
 2;losowatresc123;aa;bb;cc;dd;2;D
+3;losowatresc;aa;bb;cc;dd;1;C
+4;losowatresc123;aa;bb;cc;dd;2;D
+5;losowatresc;aa;bb;cc;dd;1;C
+6;losowatresc123;aa;bb;cc;dd;2;D
+7;losowatresc;aa;bb;cc;dd;1;C
+8;losowatresc123;aa;bb;cc;dd;2;D

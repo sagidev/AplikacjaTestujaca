@@ -14,7 +14,7 @@ namespace AplikacjaTestujaca
         [STAThread]
         static void Main()
         {
-            //nie ruszac
+            //nie ruszac 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

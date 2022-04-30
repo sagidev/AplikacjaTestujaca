@@ -30,31 +30,31 @@ namespace AplikacjaTestujaca
         {
             return id;
         }
-        string getTresc()
+        public string getTresc()
         {
             return tresc;
         }
-        string getA()
+        public string getA()
         {
             return a;
         }
-        string getB()
+        public string getB()
         {
             return a;
         }
-        string getC()
+        public string getC()
         {
             return a;
         }
-        string getD()
+        public string getD()
         {
             return a;
         }
-        string getCorrectAnswer()
+        public string getCorrectAnswer()
         {
             return corretAnswer;
         }
-        string getDifficulty()
+        public string getDifficulty()
         {
             return difficulty;
         }

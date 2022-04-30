@@ -15,8 +15,17 @@ namespace AplikacjaTestujaca
 {
     public partial class Form1 : MetroSetForm
     {
+        public string pytanie, a, b, c, d;
+        public void UpdateExam()
+        {
+            testQuestionTresc.Text = pytanie;
+            testQuestionA.Text = a;
+            testQuestionB.Text = b;
+            testQuestionC.Text = c;
+            testQuestionD.Text = d;
+        }
         //casualowe dodawanie zmiennych i innej sraki
-        List<ExamTask> eTasks = new List<ExamTask>();
+        public List<ExamTask> eTasks = new List<ExamTask>();
         string taskFilePath = "TaskDatabase.txt";
         public string dane, rank;
         public Form1()
@@ -43,7 +52,16 @@ namespace AplikacjaTestujaca
                 } while (listNumbers.Contains(randomTaskId));
                 listNumbers.Add(randomTaskId);
                 examTasks.Add(eTasks[randomTaskId]);
+                
             }
+        }
+
+        private void startTestBtn_Click(object sender, EventArgs e)
+        {
+            CollectTasks();
+            Exam exam1 = new Exam("Matma", 2);
+            exam1.createExam(eTasks);
+            //exam1.startExam();
         }
 
         void CollectTasks()//funkcja zbierajaca wszystkie zadania z pliku txt do listy w programie

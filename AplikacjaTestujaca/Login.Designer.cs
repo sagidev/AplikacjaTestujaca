@@ -95,6 +95,7 @@
             this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(244, 27);
             this.passwordTxt.TabIndex = 4;
+            this.passwordTxt.Text = "haslo";
             this.passwordTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // metroSetButton1
