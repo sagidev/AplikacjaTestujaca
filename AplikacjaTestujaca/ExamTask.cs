@@ -40,15 +40,15 @@ namespace AplikacjaTestujaca
         }
         public string getB()
         {
-            return a;
+            return b;
         }
         public string getC()
         {
-            return a;
+            return c;
         }
         public string getD()
         {
-            return a;
+            return d;
         }
         public string getCorrectAnswer()
         {

@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rankLbl = new MetroSet_UI.Controls.MetroSetLabel();
             this.imieLbl = new MetroSet_UI.Controls.MetroSetLabel();
             this.tabControl = new MetroSet_UI.Controls.MetroSetTabControl();
@@ -79,11 +83,12 @@
             this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historyPage = new MetroSet_UI.Child.MetroSetSetTabPage();
             this.examPage = new MetroSet_UI.Child.MetroSetSetTabPage();
+            this.startTestBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.metroSetLabel27 = new MetroSet_UI.Controls.MetroSetLabel();
             this.maxTasksLbl = new MetroSet_UI.Controls.MetroSetLabel();
             this.currentTaskLbl = new MetroSet_UI.Controls.MetroSetLabel();
             this.nextBtn = new MetroSet_UI.Controls.MetroSetButton();
-            this.metroSetComboBox1 = new MetroSet_UI.Controls.MetroSetComboBox();
+            this.answerBox = new MetroSet_UI.Controls.MetroSetComboBox();
             this.metroSetLabel24 = new MetroSet_UI.Controls.MetroSetLabel();
             this.metroSetLabel19 = new MetroSet_UI.Controls.MetroSetLabel();
             this.testQuestionD = new MetroSet_UI.Controls.MetroSetTextBox();
@@ -95,7 +100,7 @@
             this.testQuestionA = new MetroSet_UI.Controls.MetroSetTextBox();
             this.metroSetLabel23 = new MetroSet_UI.Controls.MetroSetLabel();
             this.testQuestionTresc = new MetroSet_UI.Controls.MetroSetTextBox();
-            this.startTestBtn = new MetroSet_UI.Controls.MetroSetButton();
+            this.examsBox = new MetroSet_UI.Controls.MetroSetComboBox();
             this.tabControl.SuspendLayout();
             this.mainPage.SuspendLayout();
             this.createTestPage.SuspendLayout();
@@ -371,7 +376,7 @@
             this.metroSetButton1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.metroSetButton1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
             this.metroSetButton1.PressTextColor = System.Drawing.Color.White;
-            this.metroSetButton1.Size = new System.Drawing.Size(129, 50);
+            this.metroSetButton1.Size = new System.Drawing.Size(129, 46);
             this.metroSetButton1.Style = MetroSet_UI.Enums.Style.Light;
             this.metroSetButton1.StyleManager = null;
             this.metroSetButton1.TabIndex = 14;
@@ -1109,19 +1114,27 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numer,
             this.Imie,
             this.Nazwisko});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
@@ -1131,18 +1144,24 @@
             // 
             // Numer
             // 
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.Numer.DefaultCellStyle = dataGridViewCellStyle7;
             this.Numer.HeaderText = "Numer";
             this.Numer.Name = "Numer";
             this.Numer.ReadOnly = true;
             // 
             // Imie
             // 
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.Imie.DefaultCellStyle = dataGridViewCellStyle8;
             this.Imie.HeaderText = "Imie";
             this.Imie.Name = "Imie";
             this.Imie.ReadOnly = true;
             // 
             // Nazwisko
             // 
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.Nazwisko.DefaultCellStyle = dataGridViewCellStyle9;
             this.Nazwisko.HeaderText = "Nazwisko";
             this.Nazwisko.Name = "Nazwisko";
             this.Nazwisko.ReadOnly = true;
@@ -1168,12 +1187,13 @@
             // examPage
             // 
             this.examPage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.examPage.Controls.Add(this.examsBox);
             this.examPage.Controls.Add(this.startTestBtn);
             this.examPage.Controls.Add(this.metroSetLabel27);
             this.examPage.Controls.Add(this.maxTasksLbl);
             this.examPage.Controls.Add(this.currentTaskLbl);
             this.examPage.Controls.Add(this.nextBtn);
-            this.examPage.Controls.Add(this.metroSetComboBox1);
+            this.examPage.Controls.Add(this.answerBox);
             this.examPage.Controls.Add(this.metroSetLabel24);
             this.examPage.Controls.Add(this.metroSetLabel19);
             this.examPage.Controls.Add(this.testQuestionD);
@@ -1199,6 +1219,34 @@
             this.examPage.ThemeAuthor = "Narwin";
             this.examPage.ThemeName = "MetroDark";
             this.examPage.ToolTipText = null;
+            this.examPage.Click += new System.EventHandler(this.examPage_Click);
+            // 
+            // startTestBtn
+            // 
+            this.startTestBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.startTestBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.startTestBtn.DisabledForeColor = System.Drawing.Color.Gray;
+            this.startTestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.startTestBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.startTestBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.startTestBtn.HoverTextColor = System.Drawing.Color.White;
+            this.startTestBtn.IsDerivedStyle = true;
+            this.startTestBtn.Location = new System.Drawing.Point(589, 94);
+            this.startTestBtn.Name = "startTestBtn";
+            this.startTestBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.startTestBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.startTestBtn.NormalTextColor = System.Drawing.Color.White;
+            this.startTestBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.startTestBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.startTestBtn.PressTextColor = System.Drawing.Color.White;
+            this.startTestBtn.Size = new System.Drawing.Size(121, 28);
+            this.startTestBtn.Style = MetroSet_UI.Enums.Style.Light;
+            this.startTestBtn.StyleManager = null;
+            this.startTestBtn.TabIndex = 26;
+            this.startTestBtn.Text = "Rozpocznij test";
+            this.startTestBtn.ThemeAuthor = "Narwin";
+            this.startTestBtn.ThemeName = "MetroLite";
+            this.startTestBtn.Click += new System.EventHandler(this.startTestBtn_Click);
             // 
             // metroSetLabel27
             // 
@@ -1270,39 +1318,40 @@
             this.nextBtn.Text = "Dalej";
             this.nextBtn.ThemeAuthor = "Narwin";
             this.nextBtn.ThemeName = "MetroLite";
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
-            // metroSetComboBox1
+            // answerBox
             // 
-            this.metroSetComboBox1.AllowDrop = true;
-            this.metroSetComboBox1.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.metroSetComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.metroSetComboBox1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.metroSetComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.metroSetComboBox1.CausesValidation = false;
-            this.metroSetComboBox1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.metroSetComboBox1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroSetComboBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroSetComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.metroSetComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.metroSetComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.metroSetComboBox1.FormattingEnabled = true;
-            this.metroSetComboBox1.IsDerivedStyle = true;
-            this.metroSetComboBox1.ItemHeight = 20;
-            this.metroSetComboBox1.Items.AddRange(new object[] {
+            this.answerBox.AllowDrop = true;
+            this.answerBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.answerBox.BackColor = System.Drawing.Color.Transparent;
+            this.answerBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.answerBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.answerBox.CausesValidation = false;
+            this.answerBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.answerBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.answerBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.answerBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.answerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.answerBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.answerBox.FormattingEnabled = true;
+            this.answerBox.IsDerivedStyle = true;
+            this.answerBox.ItemHeight = 20;
+            this.answerBox.Items.AddRange(new object[] {
             "A",
             "B",
             "C",
             "D"});
-            this.metroSetComboBox1.Location = new System.Drawing.Point(589, 266);
-            this.metroSetComboBox1.Name = "metroSetComboBox1";
-            this.metroSetComboBox1.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.metroSetComboBox1.SelectedItemForeColor = System.Drawing.Color.White;
-            this.metroSetComboBox1.Size = new System.Drawing.Size(121, 26);
-            this.metroSetComboBox1.Style = MetroSet_UI.Enums.Style.Dark;
-            this.metroSetComboBox1.StyleManager = null;
-            this.metroSetComboBox1.TabIndex = 21;
-            this.metroSetComboBox1.ThemeAuthor = "Narwin";
-            this.metroSetComboBox1.ThemeName = "MetroDark";
+            this.answerBox.Location = new System.Drawing.Point(589, 266);
+            this.answerBox.Name = "answerBox";
+            this.answerBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.answerBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.answerBox.Size = new System.Drawing.Size(121, 26);
+            this.answerBox.Style = MetroSet_UI.Enums.Style.Dark;
+            this.answerBox.StyleManager = null;
+            this.answerBox.TabIndex = 21;
+            this.answerBox.ThemeAuthor = "Narwin";
+            this.answerBox.ThemeName = "MetroDark";
             // 
             // metroSetLabel24
             // 
@@ -1350,7 +1399,7 @@
             this.testQuestionD.MaxLength = 32767;
             this.testQuestionD.Multiline = false;
             this.testQuestionD.Name = "testQuestionD";
-            this.testQuestionD.ReadOnly = false;
+            this.testQuestionD.ReadOnly = true;
             this.testQuestionD.Size = new System.Drawing.Size(196, 28);
             this.testQuestionD.Style = MetroSet_UI.Enums.Style.Dark;
             this.testQuestionD.StyleManager = null;
@@ -1393,7 +1442,7 @@
             this.testQuestionB.MaxLength = 32767;
             this.testQuestionB.Multiline = false;
             this.testQuestionB.Name = "testQuestionB";
-            this.testQuestionB.ReadOnly = false;
+            this.testQuestionB.ReadOnly = true;
             this.testQuestionB.Size = new System.Drawing.Size(196, 28);
             this.testQuestionB.Style = MetroSet_UI.Enums.Style.Dark;
             this.testQuestionB.StyleManager = null;
@@ -1436,7 +1485,7 @@
             this.testQuestionC.MaxLength = 32767;
             this.testQuestionC.Multiline = false;
             this.testQuestionC.Name = "testQuestionC";
-            this.testQuestionC.ReadOnly = false;
+            this.testQuestionC.ReadOnly = true;
             this.testQuestionC.Size = new System.Drawing.Size(196, 28);
             this.testQuestionC.Style = MetroSet_UI.Enums.Style.Dark;
             this.testQuestionC.StyleManager = null;
@@ -1479,7 +1528,7 @@
             this.testQuestionA.MaxLength = 32767;
             this.testQuestionA.Multiline = false;
             this.testQuestionA.Name = "testQuestionA";
-            this.testQuestionA.ReadOnly = false;
+            this.testQuestionA.ReadOnly = true;
             this.testQuestionA.Size = new System.Drawing.Size(196, 28);
             this.testQuestionA.Style = MetroSet_UI.Enums.Style.Dark;
             this.testQuestionA.StyleManager = null;
@@ -1534,32 +1583,34 @@
             this.testQuestionTresc.UseSystemPasswordChar = false;
             this.testQuestionTresc.WatermarkText = "";
             // 
-            // startTestBtn
+            // examsBox
             // 
-            this.startTestBtn.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.startTestBtn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.startTestBtn.DisabledForeColor = System.Drawing.Color.Gray;
-            this.startTestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.startTestBtn.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.startTestBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
-            this.startTestBtn.HoverTextColor = System.Drawing.Color.White;
-            this.startTestBtn.IsDerivedStyle = true;
-            this.startTestBtn.Location = new System.Drawing.Point(589, 133);
-            this.startTestBtn.Name = "startTestBtn";
-            this.startTestBtn.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.startTestBtn.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.startTestBtn.NormalTextColor = System.Drawing.Color.White;
-            this.startTestBtn.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.startTestBtn.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
-            this.startTestBtn.PressTextColor = System.Drawing.Color.White;
-            this.startTestBtn.Size = new System.Drawing.Size(121, 28);
-            this.startTestBtn.Style = MetroSet_UI.Enums.Style.Light;
-            this.startTestBtn.StyleManager = null;
-            this.startTestBtn.TabIndex = 26;
-            this.startTestBtn.Text = "start test";
-            this.startTestBtn.ThemeAuthor = "Narwin";
-            this.startTestBtn.ThemeName = "MetroLite";
-            this.startTestBtn.Click += new System.EventHandler(this.startTestBtn_Click);
+            this.examsBox.AllowDrop = true;
+            this.examsBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.examsBox.BackColor = System.Drawing.Color.Transparent;
+            this.examsBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.examsBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.examsBox.CausesValidation = false;
+            this.examsBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.examsBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.examsBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.examsBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.examsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.examsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.examsBox.FormattingEnabled = true;
+            this.examsBox.IsDerivedStyle = true;
+            this.examsBox.ItemHeight = 20;
+            this.examsBox.Location = new System.Drawing.Point(589, 128);
+            this.examsBox.Name = "examsBox";
+            this.examsBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.examsBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.examsBox.Size = new System.Drawing.Size(121, 26);
+            this.examsBox.Style = MetroSet_UI.Enums.Style.Dark;
+            this.examsBox.StyleManager = null;
+            this.examsBox.TabIndex = 27;
+            this.examsBox.ThemeAuthor = "Narwin";
+            this.examsBox.ThemeName = "MetroDark";
+            this.examsBox.Visible = false;
             // 
             // Form1
             // 
@@ -1579,6 +1630,7 @@
             this.Text = "APLIKACJA TESTUJACA";
             this.TextColor = System.Drawing.Color.White;
             this.ThemeName = "MetroDark";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.mainPage.ResumeLayout(false);
@@ -1626,9 +1678,6 @@
         private MetroSet_UI.Controls.MetroSetComboBox difficultyBox;
         private MetroSet_UI.Controls.MetroSetLabel dodanoZadanieLbl;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Imie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko;
         private MetroSet_UI.Controls.MetroSetLabel metroSetLabel13;
         private MetroSet_UI.Controls.MetroSetTextBox testNameBox;
         private MetroSet_UI.Controls.MetroSetComboBox fromHourBox;
@@ -1657,9 +1706,13 @@
         private MetroSet_UI.Controls.MetroSetLabel maxTasksLbl;
         private MetroSet_UI.Controls.MetroSetLabel currentTaskLbl;
         private MetroSet_UI.Controls.MetroSetButton nextBtn;
-        private MetroSet_UI.Controls.MetroSetComboBox metroSetComboBox1;
+        private MetroSet_UI.Controls.MetroSetComboBox answerBox;
         private MetroSet_UI.Controls.MetroSetLabel metroSetLabel24;
         private MetroSet_UI.Controls.MetroSetButton startTestBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwisko;
+        private MetroSet_UI.Controls.MetroSetComboBox examsBox;
     }
 }
 

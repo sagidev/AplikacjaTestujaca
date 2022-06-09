@@ -15,8 +15,11 @@ namespace AplikacjaTestujaca
 {
     public partial class Form1 : MetroSetForm
     {
-        public string pytanie, a, b, c, d;
-        public void UpdateExam()
+        //public string pytanie, a, b, c, d;
+        public int question = 0;
+        public int taskAmount = 0;
+        public int points = 0;
+        public void UpdateExam(string pytanie, string a, string b, string c, string d)
         {
             testQuestionTresc.Text = pytanie;
             testQuestionA.Text = a;
@@ -26,6 +29,7 @@ namespace AplikacjaTestujaca
         }
         //casualowe dodawanie zmiennych i innej sraki
         public List<ExamTask> eTasks = new List<ExamTask>();
+        List<int> indexes = new List<int>();
         string taskFilePath = "TaskDatabase.txt";
         public string dane, rank;
         public Form1()
@@ -59,9 +63,111 @@ namespace AplikacjaTestujaca
         private void startTestBtn_Click(object sender, EventArgs e)
         {
             CollectTasks();
-            Exam exam1 = new Exam("Matma", 2);
-            exam1.createExam(eTasks);
-            //exam1.startExam();
+            updateExams();
+            int index = examsBox.SelectedIndex;
+            string fileName = "ExamDatabase.txt";
+            string[] lines = File.ReadAllLines(fileName);
+            //var lines = File.ReadLines(fileName); //czytanie z pliku
+            int i = 0;
+            string topic = "";
+            int taskamount = 0;
+            string[] exam = lines[5].Split(';');
+            
+            topic = exam[0];
+            taskamount = Convert.ToInt32(exam[1]);
+            taskAmount = taskamount;
+            for (int l = 2; l < taskamount+2; l++)
+            {
+                indexes.Add(Convert.ToInt32(exam[l]));
+            }
+            //foreach (var line in lines)//petla wykonujaca sie w KAZDEJ LINIJCE pliku tekstowego
+            //{
+            //    if(i == index)
+            //    {
+            //        exam = line.Split(';');
+            //        topic = exam[0];
+            //        taskamount = Convert.ToInt32(exam[1]);
+            //        for(int l=2; l<taskamount; l++)
+            //        {
+            //            indexes.Add(Convert.ToInt32(exam[l]));
+            //        }
+            //    }
+            //    i++;
+            //    //string[] exam = line.Split(';');
+            //}
+            Exam egzamin = new Exam(topic, taskamount);
+            egzamin.addIndexes(indexes);
+            question = 0;
+
+            askQuestion(indexes[question]);
+            
+            //string topic = exam[0];
+
+            //string mainExam = 
+
+            //CollectTasks();
+            //Exam exam1 = new Exam("Matma", 2);
+            //exam1.createExam(eTasks);
+            ////exam1.startExam();
+        }
+        public void askQuestion(int index)
+        {
+            maxTasksLbl.Text = taskAmount.ToString();
+            currentTaskLbl.Text = (question + 1).ToString();
+            testQuestionTresc.Text = eTasks[index].getTresc();
+            testQuestionA.Text = eTasks[index].getA();
+            testQuestionB.Text = eTasks[index].getB();
+            testQuestionC.Text = eTasks[index].getC();
+            testQuestionD.Text = eTasks[index].getD();
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            string answer = "";
+            if(answerBox.SelectedItem.ToString() == "A")
+            {
+                answer = "A";
+            }
+            else if(answerBox.SelectedItem.ToString() == "B")
+            {
+                answer = "B";
+            }
+            else if (answerBox.SelectedItem.ToString() == "C")
+            {
+                answer = "C";
+            }
+            else if (answerBox.SelectedItem.ToString() == "D")
+            {
+                answer = "D";
+            }
+            string correctAnswer = eTasks[indexes[question]].getCorrectAnswer();
+            MessageBox.Show(eTasks[indexes[question]].getCorrectAnswer());
+            if (correctAnswer == answer)
+            {
+                points++;
+            }
+            question++;
+            if(question >= taskAmount)
+            {
+                finishTest();
+            }
+            else
+            {
+                askQuestion(indexes[question]);
+            }
+            
+            //askQuestion(indexes[question]);
+            //check czy koniec
+        }
+        public void finishTest()
+        {
+            MessageBox.Show("finished with " + points + " points");
+            points = 0;
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         void CollectTasks()//funkcja zbierajaca wszystkie zadania z pliku txt do listy w programie
@@ -72,7 +178,6 @@ namespace AplikacjaTestujaca
             string tresc, a, b, c, d, correctAnswer, difficulty;
             var lines = File.ReadLines(fileName); //czytanie z pliku
 
-
             foreach (var line in lines)//petla wykonujaca sie w KAZDEJ LINIJCE pliku tekstowego
             {
                 string[] credientals = line.Split(';');//dzielenie linijki na poszczegolne zmienne oddzielajac je ';'
@@ -82,8 +187,8 @@ namespace AplikacjaTestujaca
                 b = credientals[3];
                 c = credientals[4];
                 d = credientals[5];
-                correctAnswer = credientals[6];
-                difficulty = credientals[7];
+                correctAnswer = credientals[7];
+                difficulty = credientals[6];
                 ExamTask eTask = new ExamTask(id,tresc,a,b,c,d,correctAnswer,difficulty); // tworzenie nowego zadania uzywajac powyzszych danych
                 eTasks.Add(eTask);//dodanie do listy
             }
@@ -94,7 +199,6 @@ namespace AplikacjaTestujaca
             string fileName = "TaskDatabase.txt";
             var lines = File.ReadLines(fileName);
             int id = 0;
-
 
             foreach (var line in lines)
             {
@@ -115,14 +219,12 @@ namespace AplikacjaTestujaca
             }
         }
 
-
         void LoadStudentList()
         {
             //deklaracje
             string fileName = "UserDatabase.txt";
             string numer, imie, nazwisko;
             var lines = File.ReadLines(fileName);
-
 
             foreach (var line in lines)
             {
@@ -154,12 +256,64 @@ namespace AplikacjaTestujaca
         private void metroSetButton1_Click(object sender, EventArgs e)
         {
             CollectTasks();
+            int taskAmount = Convert.ToInt32(taskAmountBox.Text);
+            string topic = testNameBox.Text;
+            Exam egzamin = new Exam(topic, taskAmount);
+            
+            Random rng = new Random();
+            List<int> indexes = new List<int>();
+            //wez n liczbe pytan do temp tablicy
+            int number;
+            //egzamin.addTasks(eTasks);
+            for (int i = 0; i < taskAmount; i++)
+            {
+                do
+                {
+                    number = rng.Next(0, eTasks.Count);
+                    egzamin.addTasks(eTasks[number]);
+                    egzamin.addIndex(number);
+                } while (indexes.Contains(number));
+                indexes.Add(number);
+            }
+            string fromHour = (fromHourBox.Text + ":" + fromMinBox.Text);
+            string toHour = (toHourBox.Text + ":" + toMinBox.Text);
+            string fileName = "ExamDatabase.txt";
+            using (TextWriter tw = new StreamWriter(fileName, append: true))
+            {
+                tw.Write("\n"+egzamin.getTopic());
+                tw.Write(";" + taskAmount);
+                foreach (int i in indexes)
+                    tw.Write(";"+i);
+                tw.Write(";" + fromHour);
+                tw.Write(";" + toHour);
+            }
+            updateExams();
+            //File.AppendAllText()
+            //dodano wszystkie losowe zadania do egzaminu
+        }
+        public void updateExams()
+        {
+            examsBox.Items.Clear();
+            examsBox.Visible = true;
+            string fileName = "ExamDatabase.txt";
+            var lines = File.ReadLines(fileName); //czytanie z pliku
+
+            foreach (var line in lines)//petla wykonujaca sie w KAZDEJ LINIJCE pliku tekstowego
+            {
+                string[] exam = line.Split(';');
+                examsBox.Items.Add(exam[0]);
+            }
+        }
+
+        private void examPage_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //podstawowa deklaracja gui po zaladowaniu sie programu
-            
+            updateExams();
             rankLbl.Text = rank;
             imieLbl.Text = dane;
             mainRankLbl.Text = rank;
