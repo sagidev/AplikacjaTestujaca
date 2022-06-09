@@ -15,11 +15,13 @@ Jako profesor logujesz się 012346/haslo, a jako student 012345,haslo.
 - Wpisywanie i tworzenie nowych zadan dzielonych poziomem trudnosci
 - Pobieranie listy studentow
 - Strona glowna/Profil uzytkownika
+- Tworzenie testu
+- Podsumowanie odpowiedzi po tescie
+- Wybor testu z listy
+- Przebieg testu
 
 # Roadmap
-- Tworzenie testu
 - Historie testu
 - Drukowanie raportu
-- Podsumowanie odpowiedzi po tescie
 - Punktacja
 - Cos tam pewnie jeszcze sie znajdzie
