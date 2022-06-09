@@ -19,6 +19,7 @@ namespace AplikacjaTestujaca
         public int question = 0;
         public int taskAmount = 0;
         public int points = 0;
+        public int index = 0;
         public void UpdateExam(string pytanie, string a, string b, string c, string d)
         {
             testQuestionTresc.Text = pytanie;
@@ -64,14 +65,13 @@ namespace AplikacjaTestujaca
         {
             CollectTasks();
             updateExams();
-            int index = examsBox.SelectedIndex;
+            //int index = examsBox.SelectedIndex;
             string fileName = "ExamDatabase.txt";
             string[] lines = File.ReadAllLines(fileName);
             //var lines = File.ReadLines(fileName); //czytanie z pliku
-            int i = 0;
             string topic = "";
             int taskamount = 0;
-            string[] exam = lines[5].Split(';');
+            string[] exam = lines[index].Split(';');
             
             topic = exam[0];
             taskamount = Convert.ToInt32(exam[1]);
@@ -124,36 +124,43 @@ namespace AplikacjaTestujaca
         private void nextBtn_Click(object sender, EventArgs e)
         {
             string answer = "";
-            if(answerBox.SelectedItem.ToString() == "A")
+            if(answerBox.SelectedIndex != -1)
             {
-                answer = "A";
-            }
-            else if(answerBox.SelectedItem.ToString() == "B")
-            {
-                answer = "B";
-            }
-            else if (answerBox.SelectedItem.ToString() == "C")
-            {
-                answer = "C";
-            }
-            else if (answerBox.SelectedItem.ToString() == "D")
-            {
-                answer = "D";
-            }
-            string correctAnswer = eTasks[indexes[question]].getCorrectAnswer();
-            MessageBox.Show(eTasks[indexes[question]].getCorrectAnswer());
-            if (correctAnswer == answer)
-            {
-                points++;
-            }
-            question++;
-            if(question >= taskAmount)
-            {
-                finishTest();
+                if (answerBox.SelectedItem.ToString() == "A")
+                {
+                    answer = "A";
+                }
+                else if (answerBox.SelectedItem.ToString() == "B")
+                {
+                    answer = "B";
+                }
+                else if (answerBox.SelectedItem.ToString() == "C")
+                {
+                    answer = "C";
+                }
+                else if (answerBox.SelectedItem.ToString() == "D")
+                {
+                    answer = "D";
+                }
+                string correctAnswer = eTasks[indexes[question]].getCorrectAnswer();
+                MessageBox.Show(eTasks[indexes[question]].getCorrectAnswer());
+                if (correctAnswer == answer)
+                {
+                    points++;
+                }
+                question++;
+                if (question >= taskAmount)
+                {
+                    finishTest();
+                }
+                else
+                {
+                    askQuestion(indexes[question]);
+                }
             }
             else
             {
-                askQuestion(indexes[question]);
+                MessageBox.Show("Odpowiedz nie zostala wybrana");
             }
             
             //askQuestion(indexes[question]);
@@ -163,6 +170,15 @@ namespace AplikacjaTestujaca
         {
             MessageBox.Show("finished with " + points + " points");
             points = 0;
+            question = 0;
+            maxTasksLbl.Text = "0";
+            currentTaskLbl.Text = "0";
+            testQuestionTresc.Text = "";
+            testQuestionA.Text = "";
+            testQuestionB.Text = "";
+            testQuestionC.Text = "";
+            testQuestionD.Text = "";
+            answerBox.SelectedIndex = 0;
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -308,6 +324,11 @@ namespace AplikacjaTestujaca
         private void examPage_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void examsBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            index = examsBox.SelectedIndex;
         }
 
         private void Form1_Load(object sender, EventArgs e)

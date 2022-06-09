@@ -1610,7 +1610,7 @@
             this.examsBox.TabIndex = 27;
             this.examsBox.ThemeAuthor = "Narwin";
             this.examsBox.ThemeName = "MetroDark";
-            this.examsBox.Visible = false;
+            this.examsBox.SelectedIndexChanged += new System.EventHandler(this.examsBox_SelectedIndexChanged);
             // 
             // Form1
             // 
