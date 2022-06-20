@@ -35,7 +35,7 @@ namespace AplikacjaTestujaca
         {
             //deklaracje
             string login, password, rank, imie, nazwisko;
-
+            bool logged = false;
             //czytanie z pliku .txt
             var lines = File.ReadLines(fileName);
             foreach (var line in lines)
@@ -51,20 +51,26 @@ namespace AplikacjaTestujaca
                 //jesli login i haslo sie zgadzaja to zaloguj
                 if (usernameTxt.Text == login && passwordTxt.Text == password)
                 {
+                    MessageBox.Show("Zalogowano!");
                     this.Hide();
                     Form1 form = new Form1();
 
                     //update gui
-                    form.dane = (imie + " " + nazwisko);
-                    form.rank = rank;
-                    
+                    Form1.dane = (imie + " " + nazwisko);
+                    Form1.rank = rank;
+
                     form.ShowDialog();
-                    
+                    logged = true;
+
                 }
                 else
                 {
-
+                    
                 }
+            }
+            if(!logged)
+            {
+                MessageBox.Show("Dane nieprawidlowe.");
             }
         }
     }

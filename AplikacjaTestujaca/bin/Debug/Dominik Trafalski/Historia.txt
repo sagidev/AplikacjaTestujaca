@@ -1,0 +1,17 @@
+Dominik Trafalski;losowatresc123;0;7795;3;15
+Dominik Trafalski;losowatresc123;0;7797;4;10;
+Dominik Trafalski;losowatresc123;0;7797;4;3
+Dominik Trafalski;losowatresc123;4;7795;3;3
+Dominik Trafalski;losowatresc123;4;7793;5;3
+Dominik Trafalski;losowatresc123;0;7786;4;4
+Dominik Trafalski;losowatresc123;4;7795;4;5
+Dominik Trafalski;losowatresc123;4;7797;2;10
+Dominik Trafalski;losowatresc;5;5386;2;11
+Dominik Trafalski;losowatresc123;4;7796;2;5
+Dominik Trafalski;losowatresc123;2;7797;1;5
+Dominik Trafalski;losowatresc123;4;7798;5;5
+Dominik Trafalski;losowatresc123;4;7790;5;5
+Dominik Trafalski;losowatresc123;4;7797;5;5
+Dominik Trafalski;losowatresc123;2;7795;1;5
+Dominik Trafalski;losowatresc123;4;7796;1;5
+Dominik Trafalski;losowatresc123;4;7797;4;5

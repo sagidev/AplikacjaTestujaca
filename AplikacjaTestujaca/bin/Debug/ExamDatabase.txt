@@ -4,3 +4,7 @@ wsdaadwswsdadws3;7;8;
 sdaw;1;2;0
 elko;3;4;7;8;1:MetroSet_UI.Controls.MetroSetComboBox, Items.Count: 6;3:MetroSet_UI.Controls.MetroSetComboBox, Items.Count: 6
 siemanko120;4;6;5;0;7;2:30;3:20
+XDCHUJ;3;2;4;3;70
+dasw;3;1;6;7;150
+XDXDXDXDXDXDXDXDX;4;1;7;4;8;5400
+adws;3;3;4;0;7800
