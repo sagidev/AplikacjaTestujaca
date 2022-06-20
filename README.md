@@ -19,9 +19,6 @@ Jako profesor logujesz się 012346/haslo, a jako student 012345,haslo.
 - Podsumowanie odpowiedzi po tescie
 - Wybor testu z listy
 - Przebieg testu
-
-# Roadmap
 - Historie testu
 - Drukowanie raportu
 - Punktacja
-- Cos tam pewnie jeszcze sie znajdzie
