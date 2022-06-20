@@ -1,0 +1,14 @@
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\bin\Release\AplikacjaTestujaca.exe.config
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\bin\Release\AplikacjaTestujaca.exe
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\bin\Release\AplikacjaTestujaca.pdb
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\bin\Release\MetroSet UI.dll
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.csproj.AssemblyReference.cache
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.csproj.SuggestedBindingRedirects.cache
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.Form1.resources
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.Login.resources
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.Properties.Resources.resources
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.csproj.GenerateResource.cache
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.csproj.CoreCompileInputs.cache
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.csproj.CopyComplete
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.exe
+C:\Users\sagit\source\repos\AplikacjaTestujaca\AplikacjaTestujaca\obj\Release\AplikacjaTestujaca.pdb

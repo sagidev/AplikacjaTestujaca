@@ -241,7 +241,7 @@ namespace AplikacjaTestujaca
             time = string.Format("{0}:{1}:{2}", ts.Hours, ts.Minutes, ts.Seconds);
             int ocena = 3;
             double percent = (pt / mxpt) * 100;
-            MessageBox.Show(percent.ToString());
+            //MessageBox.Show(percent.ToString());
             if (percent > 90)
             {
                 ocena = 5;
@@ -271,12 +271,12 @@ namespace AplikacjaTestujaca
             string fullPath = Path.Combine(dir, filename);
             using (TextWriter tw = new StreamWriter(fullPath, append: true))
             {
-                tw.Write("\n" + dane);
+                tw.Write(dane);
                 tw.Write(";" + topic);
                 tw.Write(";" + points);
                 tw.Write(";" + timeLeft);
                 tw.Write(";" + ocena);
-                tw.Write(";" + maxPoints);
+                tw.Write(";" + maxPoints+"\n");
             }
 
             using (TextWriter tw = new StreamWriter(filename, append: true))
@@ -286,7 +286,7 @@ namespace AplikacjaTestujaca
                 tw.Write(";" + points);
                 tw.Write(";" + timeLeft);
                 tw.Write(";" + ocena);
-                tw.Write(";" + maxPoints);
+                tw.Write(";" + maxPoints + "\n");
             }
         }
 
@@ -350,12 +350,59 @@ namespace AplikacjaTestujaca
                 MessageBox.Show("Nie udalo sie dodac zadania.");
             }
         }
+        void LoadStudentsHistoryProf()
+        {
+            try
+            {
+                string filename = "Historia.txt";
 
+                //string fileName = "History.txt";
+                string temat, dane, punkty, ocena, czas, maxpoints;
+                var lines = File.ReadLines(filename);
+
+                foreach (var line in lines)
+                {
+                    //wyswietlanie studentow w bazie danych
+
+                    string[] credientals = line.Split(';');
+                    temat = credientals[1];
+                    dane = credientals[0];
+                    punkty = credientals[2];
+                    czas = credientals[3];
+                    ocena = credientals[4];
+                    maxpoints = credientals[5];
+
+                    string pkt = (punkty + "/" + maxpoints);
+                    TimeSpan ts = TimeSpan.FromSeconds(Convert.ToInt32(czas));
+                    time = string.Format("{0}:{1}:{2}", ts.Hours, ts.Minutes, ts.Seconds);
+
+                    if (true)
+                    {
+                        //deklaracja jakiegos gowna
+                        int rowId = dataGridView2.Rows.Add();
+                        DataGridViewRow row = dataGridView2.Rows[rowId];
+
+                        //dodawanie rowow z wyzej wypisanymi danymi
+                        dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dataGridView2.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dataGridView2.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dataGridView2.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        row.Cells["Dane1"].Value = dane;
+                        row.Cells["Tytul"].Value = temat;
+                        row.Cells["Punkty"].Value = pkt;
+                        row.Cells["Czas"].Value = time;
+                        row.Cells["Ocena"].Value = ocena;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Nie znaleziono testow do zaladowania");
+            }
+        }
         void LoadStudentsHistory()
         {
-            //deklaracje
-            if(rank == "Student")
-            {
                 try
                 {
                     string dir = Form1.dane;
@@ -406,60 +453,6 @@ namespace AplikacjaTestujaca
                 {
                     MessageBox.Show("Nie znaleziono testow do zaladowania");
                 }
-            }
-            else
-            {
-                try
-                {
-                    string filename = "Historia.txt";
-
-                    //string fileName = "History.txt";
-                    string temat, dane, punkty, ocena, czas, maxpoints;
-                    var lines = File.ReadLines(filename);
-
-                    foreach (var line in lines)
-                    {
-                        //wyswietlanie studentow w bazie danych
-
-                        string[] credientals = line.Split(';');
-                        temat = credientals[1];
-                        dane = credientals[0];
-                        punkty = credientals[2];
-                        czas = credientals[3];
-                        ocena = credientals[4];
-                        maxpoints = credientals[5];
-
-                        string pkt = (punkty + "/" + maxpoints);
-                        TimeSpan ts = TimeSpan.FromSeconds(Convert.ToInt32(czas));
-                        time = string.Format("{0}:{1}:{2}", ts.Hours, ts.Minutes, ts.Seconds);
-
-                        if (true)
-                        {
-                            //deklaracja jakiegos gowna
-                            int rowId = dataGridView2.Rows.Add();
-                            DataGridViewRow row = dataGridView2.Rows[rowId];
-
-                            //dodawanie rowow z wyzej wypisanymi danymi
-                            dataGridView2.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            dataGridView2.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            dataGridView2.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            dataGridView2.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            dataGridView2.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                            row.Cells["Dane1"].Value = dane;
-                            row.Cells["Tytul"].Value = temat;
-                            row.Cells["Punkty"].Value = pkt;
-                            row.Cells["Czas"].Value = time;
-                            row.Cells["Ocena"].Value = ocena;
-                        }
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Nie znaleziono testow do zaladowania");
-                }
-            }
-
-            
         }
 
         void LoadStudentList()
@@ -690,16 +683,19 @@ namespace AplikacjaTestujaca
             {
                 tabControl.TabPages.Remove(createTestPage);
                 tabControl.TabPages.Remove(addQuestionsPage);
+                LoadStudentsHistory();
                 //to sie robi gdy laduje sie student
                 //tabControl.TabPages.Remove(mainProfesorPage);
             }
             if (rank == "Profesor")
             {
+                tabControl.TabPages.Remove(examPage);
+                LoadStudentsHistoryProf();
                 //a to gdy profesor
                 //tabControl.TabPages.Remove(mainPage);
             }
             LoadStudentList();//ladowanie studenciakow do listy
-            LoadStudentsHistory();
+            
 
         }
     }

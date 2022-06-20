@@ -1,0 +1,6 @@
+012345;haslo;Dominik;Trafalski;Student
+012346;haslo;Grzegorz;Wiutrowski;Profesor
+012347;haslo;Bartlomiej;Uczciwek;Student
+012348;haslo;Krystian;Szewczyk;Student
+012349;haslo;Szymon;Prud;Student
+012350;haslo;Jakub;Blazejewicz;Student

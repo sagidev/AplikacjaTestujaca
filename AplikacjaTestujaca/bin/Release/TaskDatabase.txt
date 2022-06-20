@@ -1,0 +1,14 @@
+0;losowatresc123;aa0;bb;cc;dd;2;D
+1;losowatresc;aa1;bb;cc;dd;1;C
+2;losowatresc123;aa2;bb;cc;dd;2;D
+3;losowatresc;aa3;bb3;cc;dd;1;C
+4;losowatresc123;aa4;bb;cc;dd;2;D
+5;losowatresc;aa5;bb;cc;dd;1;C
+6;losowatresc123;aa6;bb;cc;dd;2;D
+7;losowatresc;aa7;bb;cc;dd;1;C
+8;losowatresc123;aa8;bb;cc;dd;3;D
+9;losowatresc123;aa4;bb;cc;dd;2;D
+10;losowatresc;aa5;bb;cc;dd;1;C
+11;losowatresc123;aa6;bb;cc;dd;2;D
+12;losowatresc;aa7;bb;cc;dd;1;C
+13;losowatresc123;aa8;bb;cc;dd;3;D
