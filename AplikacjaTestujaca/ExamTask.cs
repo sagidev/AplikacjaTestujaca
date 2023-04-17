@@ -8,12 +8,10 @@ namespace AplikacjaTestujaca
 {
     public class ExamTask
     {
-        //deklaracje
         private int id;
         private string tresc, a, b, c, d, corretAnswer, difficulty;
         public ExamTask(int iid, string ttresc, string aa, string bb, string cc, string dd, string ccorretAnswer, string ddifficulty)
         {
-            //funkcja tworzenia taska
             id = iid;
             tresc = ttresc;
             a = aa;
@@ -23,9 +21,7 @@ namespace AplikacjaTestujaca
             corretAnswer = ccorretAnswer;
             difficulty = ddifficulty;
         }
-        
-        //funkcje do czytania dancyh z taska
-        //przyklad:    string trescZadania = task.getTresc();
+
         int getID()
         {
             return id;
