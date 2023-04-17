@@ -48,35 +48,11 @@ namespace AplikacjaTestujaca
             int randomTaskId;
             for (int i = 0; i < taskAmount; i++)
             {
-                //do
-                //{
-                //    randomTaskId = rng.Next(1, allTasks.Count + 1);
-                //} while (listNumbers.Contains(randomTaskId));
                 randomTaskId = rng.Next(0, allTasks.Count);
-                //listNumbers.Add(randomTaskId);
                 examTasks.Add(allTasks[randomTaskId]);
             }
-            //MessageBox.Show(examTasks[0].getTresc());
-            //Form1.pytanie = examTasks[0].getTresc();
-            //Form1 form = new Form1();
-            //form.UpdateExam();
-            startExam();
-
-
         }
-        public void startExam()
-        {
-            //for(int i = 0; i < taskAmount;i++)
-            //{
-            //    Form1 form = new Form1();
-            //    form.pytanie = examTasks[i].getTresc();
-            //    form.a = examTasks[i].getA();
-            //    form.b = examTasks[i].getB();
-            //    form.c = examTasks[i].getC();
-            //    form.d = examTasks[i].getD();
-            //    form.UpdateExam();
-            //}
-        }
+
         public string printExam()
         {
             return (Topic + ";" + taskAmount + ";");
