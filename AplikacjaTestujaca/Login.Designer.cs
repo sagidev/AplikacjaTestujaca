@@ -147,7 +147,6 @@
             this.Text = "Aplikacja Testujaca - Logowanie";
             this.TextColor = System.Drawing.Color.White;
             this.ThemeName = "MetroDark";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

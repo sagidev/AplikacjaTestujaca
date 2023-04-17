@@ -83,6 +83,7 @@
             this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historyPage = new MetroSet_UI.Child.MetroSetSetTabPage();
             this.examPage = new MetroSet_UI.Child.MetroSetSetTabPage();
+            this.examsBox = new MetroSet_UI.Controls.MetroSetComboBox();
             this.startTestBtn = new MetroSet_UI.Controls.MetroSetButton();
             this.metroSetLabel27 = new MetroSet_UI.Controls.MetroSetLabel();
             this.maxTasksLbl = new MetroSet_UI.Controls.MetroSetLabel();
@@ -100,7 +101,6 @@
             this.testQuestionA = new MetroSet_UI.Controls.MetroSetTextBox();
             this.metroSetLabel23 = new MetroSet_UI.Controls.MetroSetLabel();
             this.testQuestionTresc = new MetroSet_UI.Controls.MetroSetTextBox();
-            this.examsBox = new MetroSet_UI.Controls.MetroSetComboBox();
             this.tabControl.SuspendLayout();
             this.mainPage.SuspendLayout();
             this.createTestPage.SuspendLayout();
@@ -155,7 +155,7 @@
             this.tabControl.ItemSize = new System.Drawing.Size(100, 38);
             this.tabControl.Location = new System.Drawing.Point(15, 93);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 5;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.SelectedTextColor = System.Drawing.Color.White;
             this.tabControl.Size = new System.Drawing.Size(783, 475);
             this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -322,7 +322,7 @@
             this.mainDaneLbl.Style = MetroSet_UI.Enums.Style.Dark;
             this.mainDaneLbl.StyleManager = null;
             this.mainDaneLbl.TabIndex = 0;
-            this.mainDaneLbl.Text = "Dominik Trafalski";
+            this.mainDaneLbl.Text = "Imie Nazwisko";
             this.mainDaneLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mainDaneLbl.ThemeAuthor = "Narwin";
             this.mainDaneLbl.ThemeName = "MetroDark";
@@ -1042,7 +1042,6 @@
             this.answerABox.ThemeName = "MetroDark";
             this.answerABox.UseSystemPasswordChar = false;
             this.answerABox.WatermarkText = "";
-            this.answerABox.Click += new System.EventHandler(this.answerABox_Click);
             // 
             // metroSetLabel6
             // 
@@ -1219,7 +1218,35 @@
             this.examPage.ThemeAuthor = "Narwin";
             this.examPage.ThemeName = "MetroDark";
             this.examPage.ToolTipText = null;
-            this.examPage.Click += new System.EventHandler(this.examPage_Click);
+            // 
+            // examsBox
+            // 
+            this.examsBox.AllowDrop = true;
+            this.examsBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.examsBox.BackColor = System.Drawing.Color.Transparent;
+            this.examsBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.examsBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+            this.examsBox.CausesValidation = false;
+            this.examsBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.examsBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.examsBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.examsBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.examsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.examsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.examsBox.FormattingEnabled = true;
+            this.examsBox.IsDerivedStyle = true;
+            this.examsBox.ItemHeight = 20;
+            this.examsBox.Location = new System.Drawing.Point(589, 128);
+            this.examsBox.Name = "examsBox";
+            this.examsBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.examsBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.examsBox.Size = new System.Drawing.Size(121, 26);
+            this.examsBox.Style = MetroSet_UI.Enums.Style.Dark;
+            this.examsBox.StyleManager = null;
+            this.examsBox.TabIndex = 27;
+            this.examsBox.ThemeAuthor = "Narwin";
+            this.examsBox.ThemeName = "MetroDark";
+            this.examsBox.SelectedIndexChanged += new System.EventHandler(this.examsBox_SelectedIndexChanged);
             // 
             // startTestBtn
             // 
@@ -1583,35 +1610,6 @@
             this.testQuestionTresc.UseSystemPasswordChar = false;
             this.testQuestionTresc.WatermarkText = "";
             // 
-            // examsBox
-            // 
-            this.examsBox.AllowDrop = true;
-            this.examsBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.examsBox.BackColor = System.Drawing.Color.Transparent;
-            this.examsBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.examsBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
-            this.examsBox.CausesValidation = false;
-            this.examsBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.examsBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.examsBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.examsBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.examsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.examsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.examsBox.FormattingEnabled = true;
-            this.examsBox.IsDerivedStyle = true;
-            this.examsBox.ItemHeight = 20;
-            this.examsBox.Location = new System.Drawing.Point(589, 128);
-            this.examsBox.Name = "examsBox";
-            this.examsBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.examsBox.SelectedItemForeColor = System.Drawing.Color.White;
-            this.examsBox.Size = new System.Drawing.Size(121, 26);
-            this.examsBox.Style = MetroSet_UI.Enums.Style.Dark;
-            this.examsBox.StyleManager = null;
-            this.examsBox.TabIndex = 27;
-            this.examsBox.ThemeAuthor = "Narwin";
-            this.examsBox.ThemeName = "MetroDark";
-            this.examsBox.SelectedIndexChanged += new System.EventHandler(this.examsBox_SelectedIndexChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -1627,7 +1625,7 @@
             this.ShowTitle = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Style = MetroSet_UI.Enums.Style.Dark;
-            this.Text = "APLIKACJA TESTUJACA";
+            this.Text = "C# Exams";
             this.TextColor = System.Drawing.Color.White;
             this.ThemeName = "MetroDark";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
