@@ -1,6 +1,6 @@
-012345;haslo;Dominik;Trafalski;Student
-012346;haslo;Grzegorz;Wiutrowski;Profesor
-012347;haslo;Bartlomiej;Uczciwek;Student
-012348;haslo;Krystian;Szewczyk;Student
-012349;haslo;Szymon;Prud;Student
-012350;haslo;Jakub;Blazejewicz;Student
+012345;haslo;Imie;Nazwisko;Student
+012346;haslo;Imie2;Nazwisko1;Profesor
+012347;haslo;Imie3;Nazwisko2;Student
+012348;haslo;Imie4;Nazwisko3;Student
+012349;haslo;Imie5;Nazwisko4;Student
+012350;haslo;Imie6;Nazwisko5;Student
